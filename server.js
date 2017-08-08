@@ -17,10 +17,10 @@ app.get('/', function (req, res) {
 
 app.get('/article-two', function (req, res){
 res.sendfile('article  is dispalayes'
-)});
+);});
 
 app.get('/article-three', function (req, res){
-res.sendfile('articlone is dispalayes')
+res.sendfile('articlone is dispalayes');
     
 });
 
