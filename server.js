@@ -4,16 +4,71 @@ var path = require('path');
 
 var app = express();
 app.use(morgan('combined'));
+var article one={
+    title: 'this is arun',
+    date: '5 sep,2019',
+    content: `
+    <p>
+            this is arun prakash m. iam creatingf aweb app.
+        </p>
+         <p>
+            this is arun prakash m. iam creatingf aweb app.
+        </p>
+         <p>
+            this is arun prakash m. iam creatingf aweb app.
+        </p>`
+        
+};
+function createtemplate(data){
+    title=data.title;
+    date=data.date;
+    content=data.content;
+
+
+var htmltemplate=`
+<html>
+    <head>
+        <title>
+          ${title}
+        </title>
+         <meta  name ="viewport" content="width=device-width, intial-scale=1" />
+       
+        <link href="/ui/style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div  class= "container">
+       
+        
+        <div>
+            <a href="/">home</a>
+        </div>
+        <h2>
+            article one
+        </h2>
+        <div>
+         ${date}
+        </div>
+        <div>
+      ${content}
+         </div>
+        </div>
+       
+    </body>
+</html>
+
+`; 
+}
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
  app.get('/article-one', function (req, res){
- res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
+res.send(createtemplate(articleone));
+});
 
      
- });
+
 
 app.get('/article-two', function (req, res){
      res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
